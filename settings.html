@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Momentum</title>
+  <meta name="description" content="Manage your Momentum account settings securely.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+
+  <!-- Bootstrap + FontAwesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    const theme = localStorage.getItem('momentum:momentum-v2:theme') || 'light';
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  </script>
+</head>
+
+<body>
+  <div class="page-container">
+    <!-- Navbar -->
+    <header>
+      <nav class="navbar navbar-expand-lg py-3">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <h1>🚀 Momentum</h1>
+            <span class="byline">by Abhinav</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
+              <li class="nav-item"><a class="nav-link" href="tasks.html">Tasks</a></li>
+              <li class="nav-item"><a class="nav-link" href="notes.html">Notes</a></li>
+              <li class="nav-item"><a class="nav-link" href="habits.html">Habits</a></li>
+              <li class="nav-item"><a class="nav-link" href="timer.html">Timer</a></li>
+              <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
+              <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+              <li class="nav-item"><a class="nav-link active" href="settings.html">Settings</a></li>
+            </ul>
+            <div class="d-flex align-items-center">
+              <button id="darkModeToggle" class="btn btn-outline-secondary me-2" aria-label="Toggle dark mode"></button>
+              <button id="logoutBtn" class="btn btn-danger">Logout</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Settings -->
+    <main class="flex-grow-1 container py-5">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+          <div class="card shadow-lg">
+            <div class="card-body p-5">
+              <h2 class="text-center mb-4">⚙️ Account Settings</h2>
+
+              <form id="settings-form">
+                <!-- Account Info -->
+                <h5 class="mb-3 text-decoration-underline">Account Information</h5>
+                <div class="mb-3 position-relative">
+                  <label class="form-label fw-semibold">Full Name</label>
+                  <div class="input-group">
+                    <input type="text" id="settings-name" class="form-control" readonly>
+                    <button type="button" class="btn btn-outline-secondary edit-btn"><i class="fas fa-pencil-alt"></i></button>
+                  </div>
+                </div>
+
+                <div class="mb-4 position-relative">
+                  <label class="form-label fw-semibold">Username</label>
+                  <div class="input-group">
+                    <input type="text" id="settings-username" class="form-control" readonly>
+                    <button type="button" class="btn btn-outline-secondary edit-btn"><i class="fas fa-pencil-alt"></i></button>
+                  </div>
+                </div>
+
+                <!-- Change Credentials Section -->
+                <h5 class="mb-3 text-decoration-underline">Change Credentials</h5>
+                <div class="accordion mb-3" id="credentialsAccordion">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCredentials" aria-expanded="false" aria-controls="collapseCredentials">
+                        Manage Password & Security
+                      </button>
+                    </h2>
+                    <div id="collapseCredentials" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#credentialsAccordion">
+                      <div class="accordion-body">
+                        <div class="mb-3 position-relative">
+                          <label class="form-label fw-semibold">New Password</label>
+                          <div class="input-group">
+                            <input type="password" id="settings-password" class="form-control" placeholder="Leave blank to keep current" readonly>
+                            <button type="button" class="btn btn-outline-secondary" id="toggleSettingsPassword"><i class="fas fa-eye-slash"></i></button>
+                          </div>
+                        </div>
+
+                        <div class="mb-3 position-relative">
+                          <label class="form-label fw-semibold">Security Question</label>
+                          <div class="input-group">
+                            <select id="settings-question" class="form-select" disabled>
+                              <option value="favoriteColor">What is your favorite color?</option>
+                              <option value="birthCity">What city were you born in?</option>
+                              <option value="petName">What is your pet’s name?</option>
+                            </select>
+                            <button type="button" class="btn btn-outline-secondary edit-btn"><i class="fas fa-pencil-alt"></i></button>
+                          </div>
+                        </div>
+
+                        <div class="mb-3 position-relative">
+                          <label class="form-label fw-semibold">Security Answer</label>
+                          <div class="input-group">
+                            <input type="text" id="settings-answer" class="form-control" readonly>
+                            <button type="button" class="btn btn-outline-secondary edit-btn"><i class="fas fa-pencil-alt"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="settings-error" class="alert alert-danger d-none" role="alert"></div>
+                <div id="settings-success" class="alert alert-success d-none" role="alert"></div>
+
+                <button type="submit" id="saveBtn" class="w-100 btn btn-lg btn-primary mt-3" disabled>Save Changes</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="text-center p-4 mt-auto">
+      <p class="mb-1">&copy; <span id="currentYear"></span> Momentum | Developed by <strong>Abhinav Krishnakumar</strong></p>
+    </footer>
+  </div>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const USERS_KEY = "momentum:momentum-v2:users";
+    const SESSION_KEY = "momentum:momentum-v2:session";
+
+    let users = JSON.parse(localStorage.getItem(USERS_KEY)) || [];
+    const currentUsername = localStorage.getItem(SESSION_KEY);
+    const currentUser = users.find(u => u.username === currentUsername);
+
+    const form = document.getElementById("settings-form");
+    const saveBtn = document.getElementById("saveBtn");
+    const errorBox = document.getElementById("settings-error");
+    const successBox = document.getElementById("settings-success");
+
+    if (!currentUser) {
+      errorBox.textContent = "No active user session found. Please log in first.";
+      errorBox.classList.remove("d-none");
+      form.classList.add("d-none");
+      return;
+    }
+
+    // Populate data
+    document.getElementById("settings-name").value = currentUser.name || "";
+    document.getElementById("settings-username").value = currentUser.username || "";
+    document.getElementById("settings-question").value = currentUser.question || "";
+    document.getElementById("settings-answer").value = currentUser.answer || "";
+
+    // Edit buttons
+    document.querySelectorAll(".edit-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const input = btn.parentElement.querySelector("input, select");
+        input.removeAttribute("readonly");
+        input.removeAttribute("disabled");
+        input.focus();
+        saveBtn.disabled = false;
+        input.classList.add("border-info");
+      });
+    });
+
+    // Password visibility toggle
+    const toggleBtn = document.getElementById("toggleSettingsPassword");
+    const passInput = document.getElementById("settings-password");
+    toggleBtn.addEventListener("click", () => {
+      const icon = toggleBtn.querySelector("i");
+      if (passInput.type === "password") {
+        passInput.type = "text";
+        icon.classList.replace("fa-eye-slash", "fa-eye");
+      } else {
+        passInput.type = "password";
+        icon.classList.replace("fa-eye", "fa-eye-slash");
+      }
+    });
+
+    // Detect input changes
+    form.querySelectorAll("input, select").forEach(el => {
+      el.addEventListener("input", () => saveBtn.disabled = false);
+    });
+
+    // Save handler
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      errorBox.classList.add("d-none");
+      successBox.classList.add("d-none");
+
+      const updated = {
+        name: document.getElementById("settings-name").value.trim(),
+        username: document.getElementById("settings-username").value.trim(),
+        password: passInput.value.trim() || currentUser.password,
+        question: document.getElementById("settings-question").value,
+        answer: document.getElementById("settings-answer").value.trim(),
+      };
+
+      const index = users.findIndex(u => u.username === currentUsername);
+      if (index !== -1) users[index] = updated;
+      localStorage.setItem(USERS_KEY, JSON.stringify(users));
+      localStorage.setItem(SESSION_KEY, updated.username);
+
+      successBox.textContent = "✅ Changes saved successfully!";
+      successBox.classList.remove("d-none");
+      saveBtn.disabled = true;
+      passInput.value = "";
+
+      form.querySelectorAll("input, select").forEach(el => {
+        el.setAttribute("readonly", true);
+        el.setAttribute("disabled", true);
+        el.classList.remove("border-info");
+      });
+    });
+  });
+  </script>
+</body>
+</html>
