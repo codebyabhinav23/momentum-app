@@ -30,25 +30,38 @@
                     <p class="text-muted">Welcome back! Please log in.</p>
                 </div>
                 <form id="login-form">
-                    
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="login-username" placeholder="Username" required>
-                        <label for="login-username">Username</label>
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="form-floating">
-                            <input type="password" class="form-control" id="login-password" placeholder="Password" required>
-                            <label for="login-password">Password</label>
-                        </div>
-                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
-                            <i class="fas fa-eye-slash"></i>
-                        </button>
-                    </div>
-                    <div id="auth-error" class="alert alert-danger d-none" role="alert"></div>
-                    <button type="submit" class="w-100 btn btn-lg btn-primary">Log In</button>
-                     <p class="privacy-note">🔒<strong>Momentum</strong> has no access to your <strong>personal data.</strong> </p>
+  <!-- Username -->
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="login-username" placeholder="Username" required>
+    <label for="login-username">Username</label>
+  </div>
 
-                </form>
+  <!-- Password -->
+  <div class="form-floating mb-1 position-relative">
+    <input type="password" class="form-control" id="login-password" placeholder="Password" required>
+    <label for="login-password">Password</label>
+
+    <!-- Eye icon -->
+    <button type="button" id="togglePassword" class="btn btn-outline-secondary position-absolute top-50 end-0 translate-middle-y me-2">
+      <i class="fas fa-eye-slash"></i>
+    </button>
+  </div>
+
+  <!-- Forgot password link -->
+  <div class="text-end mb-3">
+    <a href="forgot.html" class="text-decoration-none small">Forgot Password?</a>
+  </div>
+
+  <!-- Error -->
+  <div id="auth-error" class="alert alert-danger d-none" role="alert"></div>
+
+  <!-- Login button -->
+  <button type="submit" class="w-100 btn btn-lg btn-primary">Log In</button>
+
+  <!-- Privacy note -->
+  <p class="privacy-note mt-3">🔒 <strong>Momentum</strong> has no access to your <strong>personal data.</strong></p>
+</form>
+
                
                 <div class="text-center mt-4">
                     <p class="mb-0">Don't have an account? <a href="signup.html">Sign Up</a></p>
