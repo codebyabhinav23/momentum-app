@@ -104,26 +104,30 @@ function getCurrentUsername() {
         });
     }
 
-  function signup(name, username, password) {
-    const users = JSON.parse(localStorage.getItem(USERS_KEY)) || [];
-    if (users.some(u => u.username === username)) return { success: false, message: 'Username taken' };
-    users.push({ name, username, password });
-    localStorage.setItem(USERS_KEY, JSON.stringify(users));
-    return { success: true };
-  }
+  function signup(name, username, password, question, answer) {
+  const users = JSON.parse(localStorage.getItem(USERS_KEY)) || [];
+  if (users.some(u => u.username === username)) return { success: false, message: 'Username taken' };
+
+  users.push({ name, username, password, question, answer });
+  localStorage.setItem(USERS_KEY, JSON.stringify(users));
+  return { success: true };
+}
+
 function login(username, password) {
   const users = JSON.parse(localStorage.getItem(USERS_KEY)) || [];
   const user = users.find(u => u.username === username && u.password === password);
   if (user) {
-   localStorage.setItem(SESSION_KEY, username); // 🔹 change to localStorage
-   return true;
+    localStorage.setItem(SESSION_KEY, username);          // existing session key
+    localStorage.setItem("momentum:currentUser", username); // ✅ add this line
+    return true;
   }
   return false;
 }
 
 
 function logout() {
-  localStorage.removeItem(SESSION_KEY); // 🔹 change to localStorage
+  localStorage.removeItem(SESSION_KEY);
+  localStorage.removeItem("momentum:currentUser"); // ✅ also clear old key
   window.location.href = 'login.html';
 }
 
@@ -201,7 +205,10 @@ function logout() {
         }
         return;
       }
-      const res = signup(name, username, password);
+      const question = form.querySelector('#signup-question').value;
+const answer = form.querySelector('#signup-answer').value.trim();
+const res = signup(name, username, password, question, answer);
+
       if (res.success) window.location.href = 'login.html';
       else if (err) {
         err.textContent = res.message;
