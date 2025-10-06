@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momentum Dashboard</title>
+    <meta name="description" content="Your all-in-one productivity dashboard to manage tasks, notes, habits, and timers.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        const theme = localStorage.getItem('momentum:momentum-v2:theme') || 'light';
+        document.documentElement.setAttribute('data-bs-theme', theme);
+    </script>
+</head>
+<body>
+    <div class="page-container">
+        <header>
+            <nav class="navbar navbar-expand-lg py-3">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">
+                        <h1>🚀 Momentum</h1>
+                        <span class="byline">by Abhinav</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="tasks.html">Tasks</a></li>
+                            <li class="nav-item"><a class="nav-link" href="notes.html">Notes</a></li>
+                            <li class="nav-item"><a class="nav-link" href="habits.html">Habits</a></li>
+                            <li class="nav-item"><a class="nav-link" href="timer.html">Timer</a></li>
+                            <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                        </ul>
+                        <div class="d-flex align-items-center">
+                            <button id="darkModeToggle" class="btn btn-outline-secondary me-2" aria-label="Toggle dark mode"></button>
+                            <button id="logoutBtn" class="btn btn-danger">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="flex-grow-1">
+            <!-- Professional Greeting Section -->
+           <section class="container py-5 text-center">
+    <h2 id="welcomeMessage" class="display-4">Hello, User.</h2>
+    <p class="lead text-muted">Welcome to your personal productivity enhancer, <strong style="color: var(--bs-body-color);"> Momentum</strong>.</p>
+</section>
+
+            <!-- Quote & Overview Section -->
+            <section class="container pb-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <!-- Quote Section -->
+                        <div id="quoteCard" class="card text-center interactive-card mb-4">
+                            <div class="card-body">
+                                <blockquote class="blockquote mb-0">
+                                    <p id="quoteText">"The secret of getting ahead is getting started."</p>
+                                    <footer class="blockquote-footer"><cite id="quoteAuthor">Mark Twain</cite></footer>
+                                </blockquote>
+                            </div>
+                        </div>
+
+                        <!-- Overview Cards Section -->
+                        <div class="row g-4">
+                            <!-- Habits Card -->
+                            <div class="col-md-4">
+                                <div class="card h-100">
+                                    <div class="card-body text-center d-flex flex-column">
+                                        <div class="mb-3">
+                                            <i class="fas fa-fire fa-3x text-primary"></i>
+                                        </div>
+                                        <h5 class="card-title">Habit Streaks</h5>
+                                        <p class="card-text text-muted">You are tracking <strong id="habitCount">0</strong> habits.</p>
+                                        <a href="habits.html" class="btn btn-primary mt-auto">Manage Habits</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Tasks Card -->
+                            <div class="col-md-4">
+                                <div class="card h-100">
+                                    <div class="card-body text-center d-flex flex-column">
+                                        <div class="mb-3">
+                                            <i class="fas fa-list-check fa-3x text-info"></i>
+                                        </div>
+                                        <h5 class="card-title">Tasks</h5>
+                                        <p class="card-text text-muted">You have <strong id="taskCount">0</strong> pending tasks.</p>
+                                        <a href="tasks.html" class="btn btn-info mt-auto">View Tasks</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Quick Access Card -->
+                            <div class="col-md-4">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center mb-3">Quick Access</h5>
+                                        <div class="d-grid gap-2">
+                                            <a href="timer.html" class="btn btn-success"><i class="fas fa-stopwatch me-2"></i>Start Focus Session</a>
+                                            <a href="notes.html" class="btn btn-warning"><i class="fas fa-sticky-note me-2"></i>Jot a Quick Note</a>
+                                            <a href="analytics.html" class="btn btn-secondary"><i class="fas fa-chart-pie me-2"></i>View Analytics</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center p-4 mt-auto">
+  <p class="mb-1">&copy; <span id="currentYear"></span> Momentum | Developed by <strong>Abhinav Krishnakumar</strong></p>
+<p class="mb-0">
+  <a href="mailto:momentumbyabhinav@gmail.com" class="footer-link mx-2">
+    <i class="fas fa-envelope fa-lg"></i><span class="ms-1 small">Contact</span>
+  </a> |
+  <a href="https://instagram.com/abhinav2309_" target="_blank" class="footer-link mx-2">
+  <i class="fab fa-instagram fa-lg"></i>
+  <span class="ms-1 small">Connect</span>
+</a>
+
+</p>
+
+
+
+
+
+</footer>
+
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+

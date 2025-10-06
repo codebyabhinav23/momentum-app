@@ -1,0 +1,239 @@
+/*
+ * style.css - Momentum (complete, updated)
+ * - Professional navbar alignment
+ * - Theme-aware footer
+ * - Interactive star rating
+ * - Scrollbar hidden
+ */
+
+/* -------- Core Setup -------- */
+:root {
+    --accent: #6c5ce7;
+    --muted: #6c757d;
+    --card-bg: #ffffff;
+    --soft-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+    --bs-body-bg-rgb: 248, 249, 250;
+    --bs-border-color-translucent: rgba(0, 0, 0, 0.1);
+}
+
+[data-bs-theme="dark"] {
+    --accent: #8a7ff9;
+    --muted: #adb5bd;
+    --card-bg: #2b3035;
+    --soft-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    --bs-body-bg-rgb: 33, 37, 41;
+    --bs-border-color-translucent: rgba(255, 255, 255, 0.1);
+}
+
+/* -------- General Layout & Scrollbar Fix -------- */
+html {
+    scrollbar-width: none; /* Firefox */
+}
+html::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+}
+body {
+    background-color: rgb(var(--bs-body-bg-rgb));
+}
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main {
+    flex-grow: 1;
+}
+header {
+    border-bottom: 1px solid var(--bs-border-color-translucent);
+}
+
+/* -------- Navbar -------- */
+/* Aligns the brand name's text baseline with the nav links' baseline */
+.navbar .container {
+    align-items: baseline;
+}
+.navbar-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1;
+}
+.navbar-brand h1 {
+    font-size: 1.7rem;
+    margin-bottom: 0.2rem;
+    font-weight: 700;
+}
+.navbar-brand .byline {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-weight: 500;
+    padding-left: 2.4rem; /* Increased padding to shift it more to the right */
+}
+.navbar-nav .nav-link {
+    font-size: 1.05rem; /* Slightly larger for better readability */
+    padding: 0.5rem 1rem;
+    transition: color 0.2s;
+}
+.navbar-nav .nav-link:hover {
+    color: var(--accent);
+}
+.navbar-nav .nav-link.active {
+    font-weight: 600;
+    color: var(--accent) !important;
+}
+
+/* -------- General Card Styles -------- */
+.card {
+    border: none;
+    box-shadow: var(--soft-shadow);
+    background-color: var(--card-bg);
+}
+
+/* -------- Auth Pages (Login/Signup) -------- */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 2rem;
+}
+.theme-toggle-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+}
+
+/* -------- Dashboard Page -------- */
+.interactive-card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+}
+.interactive-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(16, 24, 40, 0.08);
+}
+[data-bs-theme="dark"] .interactive-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* -------- Tasks Page -------- */
+.task-item.completed label {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* -------- Notes Page -------- */
+.note-card-wrapper {
+    transition: transform 0.2s ease-in-out;
+}
+.note-card-wrapper:hover {
+    transform: scale(1.03);
+}
+
+/* -------- Habits Page -------- */
+.habit-card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.habit-complete-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.habit-complete-btn.completed {
+    background-color: #28a745;
+    color: white;
+    border-color: #28a745;
+}
+
+/* -------- Timer Page -------- */
+#timeDisplay {
+    font-size: 6rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+.timer-controls .btn {
+    font-size: 1.2rem;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.1s ease;
+}
+.timer-controls .btn:active {
+    transform: scale(0.95);
+}
+.timer-mode-selector .btn {
+    border-radius: 50rem;
+}
+.timer-mode-selector .btn.active {
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+}
+#pomoMode.active {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: white;
+}
+#shortBreakMode.active {
+    background-color: #198754;
+    border-color: #198754;
+    color: white;
+}
+#longBreakMode.active {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #000;
+}
+
+/* -------- Feedback Page (Corrected) -------- */
+.star-rating {
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+.star-rating .fa-star {
+    color: #e4e5e9; /* Default star color */
+    transition: color 0.2s ease-in-out;
+}
+/* These classes are controlled by JavaScript to apply color */
+.star-rating .fa-star.selected,
+.star-rating .fa-star.hover {
+    color: #ffc107; /* Yellow highlight for selected or hovered stars */
+}
+/* Dark mode styles for stars */
+[data-bs-theme="dark"] .star-rating .fa-star {
+    color: #495057; /* Dark mode default star color */
+}
+[data-bs-theme="dark"] .star-rating .fa-star.selected,
+[data-bs-theme="dark"] .star-rating .fa-star.hover {
+    color: #ffc107;
+}
+
+/* -------- Footer -------- */
+footer {
+    border-top: 1px solid var(--bs-border-color-translucent);
+}
+.footer-link {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer-link:hover {
+    color: var(--accent);
+}
+
+/* -------- Back Button -------- */
+
+
+
+
+.privacy-note {
+  font-size: 0.7rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 0.3rem;
+}

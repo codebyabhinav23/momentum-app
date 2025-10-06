@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Momentum</title>
+    <!-- SEO and Metadata -->
+    <meta name="description" content="Learn the story behind Momentum, a productivity app built by a student for students.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Anti-flash script for dark mode -->
+    <script>
+        const theme = localStorage.getItem('momentum:momentum-v2:theme') || 'light';
+        document.documentElement.setAttribute('data-bs-theme', theme);
+    </script>
+</head>
+<body>
+    <div class="page-container">
+        <header>
+            <nav class="navbar navbar-expand-lg py-3">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">
+                        <h1>🚀 Momentum</h1>
+                        <span class="byline">by Abhinav</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="tasks.html">Tasks</a></li>
+                            <li class="nav-item"><a class="nav-link" href="notes.html">Notes</a></li>
+                            <li class="nav-item"><a class="nav-link" href="habits.html">Habits</a></li>
+                            <li class="nav-item"><a class="nav-link" href="timer.html">Timer</a></li>
+                            <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                        </ul>
+                        <div class="d-flex align-items-center">
+                           <button id="darkModeToggle" class="btn btn-outline-secondary me-2" aria-label="Toggle dark mode"></button>
+                           <button id="logoutBtn" class="btn btn-danger">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="flex-grow-1">
+            <section class="container py-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow-sm">
+                            <div class="card-body p-4 p-md-5">
+                                <div class="text-center mb-4">
+                                    <h2 class="display-6 fw-bold">About Momentum 🚀</h2>
+                                </div>
+
+                                <p class="lead">Momentum is a webapp built <strong>by a student, for the students.</strong> My name is Abhinav, and I am the developer of Momentum. I created this app to offer a simple, clean, and reliable way for students to organize their day.</p>
+
+                                <h4 class="mt-4">Why Momentum?</h4>
+                                <p>Many productivity tools—like Notion, Trello, and Todoist—can feel complex, or require a paid subscription. I wanted something straightforward and easy to use, where students can track tasks, build habits, and take quick notes without distractions.</p>
+                                
+                                <h4 class="mt-4">Private & Secure</h4>
+                                <p>All your data is stored locally in your browser, keeping it private and secure, while remaining accessible whenever you need it.</p>
+
+                                <h4 class="mt-4">Main Goal</h4>
+                                <p>Momentum is designed to help students stay focused, organized, and motivated. I’m always eager to hear feedback, as it helps make the app even better.</p>
+                                
+                                <h4 class="mt-4">Free & Ad-Free, Always</h4>
+                                <p>This application is completely free to use and contains no ads. My commitment is to keep it that way, always. Future updates and new features will be guided by the valuable feedback I receive from users like you.</p>
+
+                                <div class="text-center mt-5">
+                                    <a href="feedback.html" class="btn btn-primary btn-lg">Share Your Feedback</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center p-4 mt-auto">
+            <p class="mb-1">&copy; <span id="currentYear"></span> Momentum | Developed by <strong>Abhinav Krishnakumar</strong></p>
+            <p class="mb-0">
+  <a href="mailto:momentumbyabhinav@gmail.com" class="footer-link mx-2">
+    <i class="fas fa-envelope fa-lg"></i><span class="ms-1 small">Contact</span>
+  </a> |
+ <a href="https://instagram.com/abhinav2309_" target="_blank" class="footer-link mx-2">
+  <i class="fab fa-instagram fa-lg"></i>
+  <span class="ms-1 small">Connect</span>
+</a>
+
+</p>
+        </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+

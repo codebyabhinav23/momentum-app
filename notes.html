@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes - Momentum</title>
+    <meta name="description" content="Capture your ideas quickly with the Momentum notes section.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        const theme = localStorage.getItem('momentum:momentum-v2:theme') || 'light';
+        document.documentElement.setAttribute('data-bs-theme', theme);
+    </script>
+</head>
+<body>
+    <div class="page-container">
+        <header>
+            <nav class="navbar navbar-expand-lg py-3">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">
+                        <h1>🚀 Momentum</h1>
+                        <span class="byline">by Abhinav</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="tasks.html">Tasks</a></li>
+                            <li class="nav-item"><a class="nav-link" href="notes.html">Notes</a></li>
+                            <li class="nav-item"><a class="nav-link" href="habits.html">Habits</a></li>
+                            <li class="nav-item"><a class="nav-link" href="timer.html">Timer</a></li>
+                            <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                        </ul>
+                        <div class="d-flex align-items-center">
+                           <button id="darkModeToggle" class="btn btn-outline-secondary me-2" aria-label="Toggle dark mode"></button>
+                           <button id="logoutBtn" class="btn btn-danger">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="container my-5">
+            <section id="notes-section">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1>Notes</h1>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Add a New Note</h5>
+                        <div class="mb-3">
+                            <input type="text" id="noteTitle" class="form-control" placeholder="Note Title...">
+                        </div>
+                        <div class="input-group">
+                            <textarea id="noteInput" class="form-control" rows="3" placeholder="Jot down an idea..."></textarea>
+                            <!-- I've added type="button" here to prevent potential form submission issues -->
+                            <button class="btn btn-primary" type="button" id="addNoteBtn">Save Note</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="notesContainerWrapper">
+                    <div id="notesContainer" class="masonry-grid">
+                        <!-- Notes will be dynamically added here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="text-center p-4 mt-auto">
+            <p class="mb-1">&copy; <span id="currentYear"></span> Momentum | Developed by <strong>Abhinav Krishnakumar</strong></p>
+            <p class="mb-0">
+  <a href="mailto:momentumbyabhinav@gmail.com" class="footer-link mx-2">
+    <i class="fas fa-envelope fa-lg"></i><span class="ms-1 small">Contact</span>
+  </a> |
+  <a href="https://instagram.com/abhinav2309_" target="_blank" class="footer-link mx-2">
+  <i class="fab fa-instagram fa-lg"></i>
+  <span class="ms-1 small">Connect</span>
+</a>
+
+</p>
+        </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
